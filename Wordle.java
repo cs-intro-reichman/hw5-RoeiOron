@@ -136,7 +136,9 @@ public class Wordle {
             }
 
             storeGuess(guess, guesses, attempt);    
-            Arrays.fill(results[attempt], '_');          
+            for (int i = 0; i < WORD_LENGTH; i++) {
+            results[attempt][i] = '_';
+            }        
             computeFeedback(secret, guess, results[attempt]);
 
             // Print board
