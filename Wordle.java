@@ -3,17 +3,16 @@ public class Wordle {
     // Reads all words from dictionary filename into a String array.
     public static String[] readDictionary(String filename) {
         In file = new In(filename);
-        String[] words = file.readAllLined();
+        String[] words = file.readAllLines();
         return words;
     }
 
     // Choose a random secret word from the dictionary. 
     // Hint: Pick a random index between 0 and dict.length (not including) using Math.random()
     public static String chooseSecretWord(String[] dict) {
-		int min = 0;
-        int max = 258;
-        int randomNumber = (int) (Math.random() * (max - min));
-        return dict[randomNumber];
+		int range = dict.length; // Use the actual length
+        int randomIndex = (int) (Math.random() * range); 
+        return dict[randomIndex];
     }
 
     // Simple helper: check if letter c appears anywhere in secret (true), otherwise
@@ -46,7 +45,9 @@ public class Wordle {
             secretTrack[matchIndex] = '#';
         }
     }
-}}
+  }
+}
+
     
 
     // Store guess string (chars) into the given row of guesses 2D array.
