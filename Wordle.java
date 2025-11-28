@@ -15,6 +15,17 @@ public class Wordle {
         return dict[randomIndex];
     }
 
+
+    public static boolean containsWord(String guess, String[] dict) {
+    // Searches the dictionary (dict) for the input guess.
+    for (String dictWord : dict) {
+        if (guess.equals(dictWord)) {
+            return true; 
+        }
+    }
+    return false;
+}
+
     // Simple helper: check if letter c appears anywhere in secret (true), otherwise
     // return false.
     public static boolean containsChar(String secret, char c) {
