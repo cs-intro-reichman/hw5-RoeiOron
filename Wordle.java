@@ -35,30 +35,30 @@ public class Wordle {
             }
     }
 
-    // Compute feedback for a single guess into resultRow.
-    // G for exact match, Y if letter appears anywhere else, _ otherwise.
     public static void computeFeedback(String secret, String guess, char[] resultRow) {
-		char[] secretTrack = secret.toCharArray();
-        char[] guessTrack = guess.toCharArray();
-            for (int i = 0; i < guess.length(); i++) {
-            if (secretTrack[i] == guessTrack[i]) {
-            resultRow[i] = 'G';
-            secretTrack[i] = '#'; 
-            guessTrack[i] = '#';
-            } else {
-            resultRow[i] = '_';
-            }}
-            for (int i = 0; i < guess.length(); i++) {
-            if (resultRow[i] == '_') {
-            int matchIndex = new String(secretTrack).indexOf(guessTrack[i]);
-            if (matchIndex != -1) {
-            resultRow[i] = 'Y'; 
-            secretTrack[matchIndex] = '#';
+    char[] secretTrack = secret.toCharArray();
+    char[] guessTrack = guess.toCharArray();
+    for (int i = 0; i < secret.length(); i++) {
+        if (secretTrack[i] == guessTrack[i]) {
+            resultRow[i] = 'G';    
+            secretTrack[i] = '#';  
+            guessTrack[i] = '#';    
+        } else {
+            resultRow[i] = '_';    
         }
     }
-  }
-}
-
+    for (int i = 0; i < secret.length(); i++) {
+        if (resultRow[i] == '_') {
+            int matchIndex = new String(secretTrack).indexOf(guessTrack[i]);
+            
+            if (matchIndex != -1) {
+                resultRow[i] = 'Y'; 
+                secretTrack[matchIndex] = '#';
+            }
+        }
+    } 
+} 
+    }
     
 
     // Store guess string (chars) into the given row of guesses 2D array.
