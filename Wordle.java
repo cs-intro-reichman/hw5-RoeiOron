@@ -38,6 +38,7 @@ public class Wordle {
     public static void computeFeedback(String secret, String guess, char[] resultRow) {
     char[] secretTrack = secret.toCharArray();
     char[] guessTrack = guess.toCharArray();
+
     for (int i = 0; i < secret.length(); i++) {
         if (secretTrack[i] == guessTrack[i]) {
             resultRow[i] = 'G';    
@@ -58,7 +59,7 @@ public class Wordle {
         }
     } 
 } 
-    }
+    
     
 
     // Store guess string (chars) into the given row of guesses 2D array.
@@ -162,4 +163,4 @@ public class Wordle {
            }
         inp.close();
     }
-}
+
