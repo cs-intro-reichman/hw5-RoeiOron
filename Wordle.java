@@ -19,7 +19,7 @@ public class Wordle {
     // return false.
     public static boolean containsChar(String secret, char c) {
 		if(secret.indexOf(c)!= -1) {
-            return true} else {
+            return true; } else {
                 return false;
             }
     }
